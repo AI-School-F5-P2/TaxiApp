@@ -1,6 +1,6 @@
 from Controllers.Prices import Prices
+from Controllers.AuxFunctions import clear_screen
 import time
-import os
 
 
 # The NewPrices class prompts the user to input new stop and move prices, sets them using a method
@@ -34,8 +34,8 @@ class NewPrices:
             self.reset_prices.set_new_prices(stop, move)
             print(self.messages["success"])
             time.sleep(2)
-            NewPrices.clear_screen()
+            clear_screen()
         except:
             print(self.messages["error"])
             time.sleep(2)
-            self.clear_screen()
+            clear_screen()

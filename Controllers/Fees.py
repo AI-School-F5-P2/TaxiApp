@@ -1,6 +1,6 @@
+from Models.DataTrip import DataTrip
 from Views.Timer import Timer
 from Controllers.Prices import Prices
-from Models.DataTrip import DataTrip
 
 
 # The `Fees` class calculates the total time, stopped time, movement time, and bills for a taxi trip
@@ -33,6 +33,7 @@ class Fees:
         print(self.start_message)
         self.chrono.history_timer()
 
+
     def seconds_to_minutes(self, seconds: float) -> str:
         """
         The function converts a given number of seconds to minutes and seconds, and returns the result
@@ -57,9 +58,10 @@ class Fees:
         else:
             seconds_str = " segundos"
 
-        result = (
-            f"{int(minutes)} {minutes_str} y {int(remaining_seconds)} {seconds_str}"
-        )
+        if minutes > 1:
+            result = f"{minutes}{minutes_str} y {remaining_seconds}{seconds_str}"
+        else:
+            result = f"{remaining_seconds}{seconds_str}"
         return result
 
     def end_travel(self):

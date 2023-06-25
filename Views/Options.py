@@ -33,6 +33,7 @@ def print_options():
                     "Cambiar la contraseña",
                     "Cambiar el precio de las tarifas",
                     "Ver el histórico de trayectos",
+                    "Actualizar la base de datos",
                     "Eliminar el histórico de trayectos",
                     "Realizar los tests",
                     "Ver la documentación",
@@ -52,6 +53,10 @@ def print_options():
         elif answers["Options"] == "Ver el histórico de trayectos":
             clear_screen()
             control_history("show")
+        elif answers["Options"] == "Actualizar la base de datos":
+            clear_screen()
+            DataTrip.update_history_to_mongo()
+            clear_screen()
         elif answers["Options"] == "Eliminar el histórico de trayectos":
             clear_screen()
             control_history("delete")

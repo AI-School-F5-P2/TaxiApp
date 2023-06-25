@@ -1,9 +1,9 @@
+from Views.Options import print_options
+from Controllers.AuxFunctions import clear_screen
+from config_manager import load_config, save_config
 import getpass
 import hashlib
 import time
-import os
-from config_manager import load_config, save_config
-from Views.Options import print_options
 
 
 # The LoginAuth class provides methods for registering and authenticating users, as well as changing
@@ -53,7 +53,7 @@ class LoginAuth:
         except:
             print(self.responses["register_error"])
             time.sleep(2)
-            self.clear_screen()
+            clear_screen()
             self.register_user()
 
     def authenticate_user(self) -> bool:
@@ -93,12 +93,12 @@ class LoginAuth:
                     save_config(self.config)
                     print(self.responses["change_password_ok"])
                     time.sleep(2)
-                    self.clear_screen()
+                    clear_screen()
                     break
                 else:
                     print(self.responses["change_password_error"])
                     time.sleep(2)
-                    self.clear_screen()
+                    clear_screen()
         except:
             print(self.responses["change_password_error"])
             time.sleep(2)
